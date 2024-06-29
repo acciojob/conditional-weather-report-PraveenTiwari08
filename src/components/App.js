@@ -1,13 +1,26 @@
+import React, { useEffect , useState } from "react";
+import "./../styles/App.css";
 
-import React from "react";
-import './../styles/App.css';
 
 const App = () => {
+  const [data, setdata] = useState("");
+
+  const changeinput = (event) =>{
+      setdata(event.target.value)
+  }
+
+  useEffect(() => {});
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      {
+        <>
+          <input value={data} placeholder="hello" onChange={changeinput} />
+          <WheatherDisplay data={data}></WheatherDisplay>
+        </>
+      }
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
