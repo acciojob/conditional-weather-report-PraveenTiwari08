@@ -1,19 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import "./../styles/App.css";
-import WeatherDisplay from '././WheatherDisplay';
+import WheatherDisplay from "./WheatherDisplay";
+
 
 const App = () => {
-  const [weather, setWeather] = useState({ temperature: 0, conditions: "" });
+  const [data, setdata] = useState("");
 
-  useEffect(() => {
-    // Simulate fetching weather data
-    const weatherInput = { temperature: 25, conditions: "Sunny" };
-    setWeather(weatherInput);
-  }, []);
+  const changeinput = (event) =>{
+      setdata(event.target.value)
+  }
+
+  useEffect(() => {});
 
   return (
-    <div className="App">
-      <WeatherDisplay weather={weather} />
+    <div>
+      {
+        <>
+          <input value={data} placeholder="hello" onChange={changeinput} />
+          <WheatherDisplay data={data}></WheatherDisplay>
+        </>
+      }
     </div>
   );
 };
