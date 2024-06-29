@@ -1,13 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-function WheatherDisplay({data}) {
+function WeatherDisplay({ weather }) {
+  const { temperature, conditions } = weather;
+  const textColor = temperature > 20 ? 'red' : 'blue';
 
-  const textColor = data.length < 20 ? 'blue' : 'red';
   return (
-    <div style={{ color: textColor }}>
-      <p>{`temperature:${data} , conditions: "Sunny"`}</p>
+    <div>
+      <p style={{ color: textColor }}>Temperature: {temperature}</p>
+      <p>Conditions: {conditions}</p>
     </div>
-  )
+  );
 }
 
-export default WheatherDisplay
+export default WeatherDisplay;
